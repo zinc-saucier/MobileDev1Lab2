@@ -1,15 +1,24 @@
-import { Text, View } from "react-native";
+/**
+ * My To Do List App
+ *
+ * @format
+ */
 
-export default function Index() {
+import React from 'react';
+import {StyleSheet,View,} from 'react-native';
+import ToDoForm from './ToDoForm';
+import ToDoList from './ToDoList';
+
+
+function App() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+    <View>
+      <ToDoList/>
+      <ToDoForm/>
     </View>
   );
 }
+
+const styles = StyleSheet.create({});
+
+export default App;

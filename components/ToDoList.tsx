@@ -1,15 +1,29 @@
 import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native'
 import React from 'react'
 
-const ToDoList = () => {
+type Task = {
+  name: string;
+}
+type TaskProps ={
+  tasks: Task[];
+}
+
+export default function ToDoList ({tasks}:TaskProps) {
+
+  const { name } = tasks;
+  
+  
+
   return (
-    <ScrollView>
+    <ScrollView>{tasks.map((task)=>(
       <Pressable>
-        <View style={[styles.task, styles.completed]}>
-          <Text style={styles.taskText}>Do laundry</Text>
+        <View key={task.name} style={[styles.task, styles.completed]}>
+          <Text style={styles.taskText}>{task.name}</Text>
         </View>
       </Pressable>
-      <Pressable>
+     ))}
+      
+      {/* <Pressable>
         <View style={[styles.task]}>
           <Text style={styles.taskText}>Go to gym</Text>
         </View>
@@ -18,12 +32,14 @@ const ToDoList = () => {
         <View style={[styles.task, styles.completed]}>
           <Text style={styles.taskText}>Walk dog</Text>
         </View>
-      </Pressable>
+      </Pressable> */}
     </ScrollView>
-  )
+  );
 }
 
-export default ToDoList
+
+
+
 
 const styles = StyleSheet.create({
     task: {

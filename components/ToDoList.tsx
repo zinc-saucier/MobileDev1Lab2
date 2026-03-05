@@ -1,28 +1,17 @@
 import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native'
 import React from 'react'
 
-type Task = {
-  name: string;
-}
-type TaskProps ={
-  tasks: Task[];
-}
-
-export default function ToDoList ({tasks}:TaskProps) {
-
-  const { name } = tasks;
-  
-  
+export default function ToDoList ({tasks}:{tasks:string[]}) {
 
   return (
     <ScrollView>{tasks.map((task)=>(
       <Pressable>
-        <View key={task.name} style={[styles.task, styles.completed]}>
-          <Text style={styles.taskText}>{task.name}</Text>
+        <View key={task} style={[styles.task, styles.completed]}>
+          <Text style={styles.taskText}>{task}</Text>
         </View>
       </Pressable>
      ))}
-      
+      {/*previous hardcoded list */}
       {/* <Pressable>
         <View style={[styles.task]}>
           <Text style={styles.taskText}>Go to gym</Text>
